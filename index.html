@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿me vuelves a hablar?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        #yesButton {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #noButton {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Me volverías a hablar para siempre?</h1>
+        <div class="buttons">
+            <button id="yesButton" onclick="changeText()">Sí</button>
+            <button id="noButton" onclick="enlargeYes()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function changeText() {
+            document.write("<h1>Gracias te quiero linda</h1>");
+        }
+
+        function enlargeYes() {
+            const yesButton = document.getElementById('yesButton');
+            let currentFontSize = window.getComputedStyle(yesButton).fontSize;
+            let currentPadding = window.getComputedStyle(yesButton).padding;
+
+            // Parse current font size and padding, and increase them
+            let newFontSize = parseFloat(currentFontSize) * 1.2;
+            let paddingValues = currentPadding.split(' ');
+            let newPadding = paddingValues.map(pad => parseFloat(pad) * 1.2 + 'px').join(' ');
+
+            // Set the new font size and padding
+            yesButton.style.fontSize = newFontSize + 'px';
+            yesButton.style.padding = newPadding;
+        }
+    </script>
+</body>
+</html>
